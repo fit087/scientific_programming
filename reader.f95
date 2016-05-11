@@ -11,14 +11,14 @@ program reader
 	implicit none
 	
 	character(80)				:: line
-	integer					:: i, n_point, grau = 3
+	integer					:: i, n_point, grau = 2
 	real*8					:: n_gauss
 	!character (len=:), allocatable 	:: n_name
 	!character (len=:)			 	:: n_name
 
 	!allocate(n_name(n_point))		:: n_name
 	!degree_polynom < 2*n_point-1
-	n_point = (grau + 1)/2
+	n_point = ( grau + 2 - modulo(grau,2) )/2
 
 	print *, 'n_point = ', n_point
 	
@@ -29,7 +29,7 @@ program reader
 
 	 !read(n_point,*) line
 
-	 write(line,"(i1)") n_point
+	 write(line,"(i1)") grau
 
 	 !allocate(character(len=len(line)) :: n_name)
 
@@ -53,45 +53,34 @@ program reader
 	 !read (10, '(i80)') line
 		!do i = 1,13
 		
-		do i = 1, 17+3*n_point+2
-			!read (10, *) line
-			!read (10, rec=13) line
-			!read (10, *) line
+!		do i = 1, 17+3*n_point+2
+		call ignorar_linhas(18)
+
+		do i = 1, n_point
+		
+
 			
+			!if (i < 18 .or. (i > 18 + n_point .and. i < 18+n_point*2+1)) then
 			
-!			if (i < 18 .or. (i > 18 + n_point .and. i < 18+n_point*2+1)) then !.and. i < 18 + n_point+2)) then
-			
-!				read (10, *)
-!			else
-!				!read (10, *) line
-!				read (10, *) n_gauss
-!				!print *, line
-!				print *, n_gauss, i
+			!	read (10, *)
 				
-!			end if
-			
-			if (i < 18 .or. (i > 18 + n_point .and. i < 18+n_point*2+1)) then
-			
-				read (10, *)
-				
-			else
+			!else
 
 				!read (10, *) line
 				read (10, *) n_gauss
-				!print *, line
 				print *, n_gauss, i
+				call ignorar_linhas(1)
+				!print *, line
+				read (10, *) n_gauss
+				print *, n_gauss, i
+				call ignorar_linhas(1)
+				read (10, *) n_gauss
+				print *, n_gauss, i
+
+				if (i < n_point)	call ignorar_linhas(3)
 				
-			end if
+			!end if
 			
-			!read (10, "(a80)") line
-			!read (10, "(f8.10)") line
-			
-			!read (10, *) n_gauss
-			!read (10, "(f18.10)") n_gauss
-			
-			!print *, line
-			
-			!print *, n_gauss
 		end do
 	 close(10)
 	 
@@ -99,3 +88,12 @@ program reader
 	
 	
 end program reader
+
+
+subroutine ignorar_linhas(n_lines)
+	integer	:: i, n_lines
+	do i = 1, n_lines
+		read(10, *)
+	end do
+
+end subroutine ignorar_linhas
