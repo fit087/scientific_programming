@@ -25,6 +25,9 @@ g++ reader.cpp -o readerc
 
 using namespace std;
 
+//void ignore_lines(int, ifstream *);
+void ignore_lines(int, double);
+
 int main(void)
 {
 	// Reader
@@ -33,7 +36,8 @@ int main(void)
 	//char lines[42];
 	string lines;
 	int i, n_point, grau = 3;
-	double n_gauss;
+	double n_gauss, fileto;
+	
 
 
 	cout << endl << "Reading File Program" << endl;
@@ -63,17 +67,23 @@ int main(void)
 
 	//ifstream oarquivo;
 	ifstream oarquivo;
+	//ifstream *file_pointer;
+	//file_pointer = &oarquivo;
+	
 	
 	//oarquivo.open ("./P_C++_1D/IntegraExatoPolGrau_Menor_ou_="+line+".txt", ios::in);
 	
 	oarquivo.open ("./P_C++_1D/IntegraExatoPolGrau_Menor_ou_=2.txt", ios::in);
 
+	oarquivo>>fileto;
+
 	if (oarquivo.is_open())
 	{
 		
-		for(i = 1; i <= 17+3*n_point+2; i++)
+//		for(i = 1; i <= 17+3*n_point+2; i++)
+		for(i = 0; i < n_point; i++)
 		{			
-			if (i < 18 || (i > 18 + n_point && \
+			/*if (i < 18 || (i > 18 + n_point && \
 			i < 18+n_point*2+1))
 			{
 			
@@ -83,7 +93,7 @@ int main(void)
 				getline (oarquivo,lines);
 			}	
 			else
-			{
+			{*/
 
 				//read (10, *) line
 				//oarquivo >> n_gauss;
@@ -93,7 +103,7 @@ int main(void)
 				//cout << n_gauss << i;
 				cout << lines << i << endl;
 				
-			}
+			//}
 			
 
 		}
@@ -104,4 +114,14 @@ int main(void)
 
 	cout<<endl;
 	 
+}
+
+//void ignore_lines(int n, ifstream *file)
+void ignore_lines(int n, double file)
+{
+	int i=0;
+	char forget[80];
+	for(i=0; i < n; i++)
+		getline(file,forget);
+		
 }
