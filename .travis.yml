@@ -5,7 +5,9 @@ before_install:
 
 script:
   - gfortran -fprofile-arcs -ftest-coverage -O0 reader.f95 -o reader
+  - g++ quad_guass.cpp -o quad_guass
   - ./reader
+  - ./quad_gauss
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
