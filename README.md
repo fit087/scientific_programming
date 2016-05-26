@@ -1,5 +1,6 @@
 # Scientific Programming
 
+[![Build Status](https://travis-ci.org/fit087/scientific_programming.svg?branch=master)](https://travis-ci.org/fit087/scientific_programming)
 
 2016/MAY/04
 
