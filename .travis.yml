@@ -5,8 +5,10 @@ before_install:
 
 script:
   - gfortran -fprofile-arcs -ftest-coverage -O0 reader.f95 -o reader
+  - g++ reader.cpp -o readerc
   - g++ quad_guass.cpp -o quad_guass
   - ./reader
+  - ./readerc
   - ./quad_gauss
 
 after_success:
