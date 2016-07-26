@@ -21,4 +21,5 @@ It is mostly written in C++ and Fortran and has a little piece in Python. The so
 - Gauss-Legendre Quadrature (C++)
 - Binary files (C++) in ``binar.cpp`` and 
 - Dynamic Memory Allocation (C++) in ``datadyn.cpp`` and ``ponteiro.cpp``
+- Dynamic-link library (DLL) in ``dll.cpp``
 
