@@ -7,7 +7,11 @@
 Scientific Programming contain the homeworks of C++, Qt and Fortran Introductory course
 from the Rio de Janeiro's Federal University.
 
-This project contains exercices with the Gauss-Legendre Quadrature
+This project contains exercices with the Gauss-Legendre Quadrature.
+
+<img src="http://www.sciweavers.org/tex2img.php?eq=%20%5Cint_%7B-1%7D%5E1%20f%28x%20%29%20dx%20%5Capprox%20%5Csum_%7Bi%3D1%7D%5En%20w_i%20%5Ccdot%20f%28x_i%20%29&bc=White&fc=Black&im=jpg&fs=12&ff=arev&edit=0" align="center" border="0" alt=" \int_{-1}^1 f(x ) dx \approx \sum_{i=1}^n w_i \cdot f(x_i )" width="206" height="53" />
+
+![equation](http://www.sciweavers.org/tex2img.php?eq=%20%5Cint_a%5Eb%20f%28x%20%29%20dx%20%5Capprox%20%5Cfrac%7Bb-a%7D%7B2%7D%5Csum_%7Bi%3D1%7D%5En%20w_i%20%5Ccdot%20f%28x_i%20%29&bc=White&fc=Black&im=jpg&fs=12&ff=arev&edit=0)
 
 ##Introduction
 
