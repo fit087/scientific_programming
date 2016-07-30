@@ -13,6 +13,8 @@ This project contains exercices with the Gauss-Legendre Quadrature.
 
 ![equation](http://www.sciweavers.org/tex2img.php?eq=%20%5Cint_a%5Eb%20f%28x%20%29%20dx%20%5Capprox%20%5Cfrac%7Bb-a%7D%7B2%7D%5Csum_%7Bi%3D1%7D%5En%20w_i%20%5Ccdot%20f%28x_i%20%29&bc=White&fc=Black&im=jpg&fs=12&ff=arev&edit=0)
 
+![img](http://www.sciweavers.org/tex2img.php?eq=%20J%3D%5Cdfrac%7B%5Cpartial%20%28x%2Cy%29%7D%7B%5Cpartial%20%28%5Cxi%2C%5Ceta%29%7D%3D%5Cbegin%7Bbmatrix%7D%20%5Cdfrac%7B%5Cpartial%20x%20%7D%7B%5Cpartial%20%5Cxi%7D%20%20%26%20%5Cdfrac%7B%5Cpartial%20y%20%7D%7B%5Cpartial%20%5Cxi%7D%20%20%20%5C%5C%20%5Cdfrac%7B%5Cpartial%20x%20%7D%7B%5Cpartial%20%5Ceta%7D%20%20%26%20%5Cdfrac%7B%5Cpartial%20y%20%7D%7B%5Cpartial%20%5Ceta%7D%20%5Cend%7Bbmatrix%7D%20%5Cend%7Bbmatrix%7D%20%0A&bc=White&fc=Black&im=jpg&fs=12&ff=arev&edit=0)
+
 ##Introduction
 
 This project join the academic works from a Master of Science Course.
