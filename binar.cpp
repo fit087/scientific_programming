@@ -6,10 +6,10 @@
     Leitura direta nao sequencial
 */
 
-#include <iostream>
-#include <fstream>
+#include <iostream>     ///< Input and Output on screen and read keyboard
+#include <fstream>      ///< This library contains the methods for read and write on files
 //#include <cstring>
-#include <string>
+#include <string>       ///< This library contains the string type
 //#include <iomanip>
 
 using namespace std;
@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
 {
     ofstream saida("out_binar.bin", ios::binary);
 
-    estructura variavel;
+    estructura variavel; ///< 
 
     variavel.nr = 5;
     //variavel.cadena = "Hola                     ";
