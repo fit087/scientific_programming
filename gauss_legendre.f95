@@ -111,7 +111,8 @@ real*8 function newton_raphson(x0, n) result (x)
 	x=x0
 	do
 		x = x - legendre_pol2(x,n) / fprime(x,n)
-		if (legendre_pol2(x,n)/fprime(x,n)> 2*tiny(x)) exit
+                !print *, 'i = ', i
+		if (ABS(legendre_pol2(x,n)/fprime(x,n))< 2*EPSILON(x)) exit
 	enddo
 
 end function newton_raphson
