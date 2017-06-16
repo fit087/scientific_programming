@@ -53,7 +53,7 @@ program gauss_legendre
 !      use ExampleFuncs
       
       integer i, n, j
-      real*8 x0, x, legendre_pol2, fprime, newton_raphson
+      real*8 x0, x, legendre_pol2, fprime, newton_raphson, w, gauss_weights
       
       real*8, parameter :: pi = 4.0 * atan(1.0)
       
@@ -82,12 +82,24 @@ program gauss_legendre
                   !print *, 'fprime(x,n) = ',  fprime(x,n)
                   !end do
 !                  print *, i, x0
-                  print *, i, newton_raphson(x0, n)
-      
+                  x = newton_raphson(x0, n)
+                  w = gauss_weights(x, n)
+                  print *, i, x, w      
+
             end do
       end do
 
 end program gauss_legendre
+
+!real*8 pure function gauss_weights(x,n) result (w)
+real*8 function gauss_weights(x,n) result (w)
+        implicit none
+        integer, intent(in)     ::n
+	real*8, intent(in) 	::x
+        real*8 fprime
+        w = 2.d0/(1.d0-x**2)/(fprime(x,n))**2
+
+end function gauss_weights
 
 !real*8 pure function newton_raphson(x0, fx, fprime) result (x)
 !	implicit none
