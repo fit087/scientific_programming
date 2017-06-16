@@ -54,6 +54,7 @@ program gauss_legendre
       
       integer i, n, j
       real*8 x0, x, legendre_pol2, fprime, newton_raphson, w, gauss_weights
+      real*8, dimension(:,:),allocatable :: xw
       
       real*8, parameter :: pi = 4.0 * atan(1.0)
       
@@ -88,8 +89,60 @@ program gauss_legendre
 
             end do
       end do
+      allocate(xw(2,2))
+      print *, 'Nova subroutine '
+      call gauss_abscissas_weights(2, xw)
+      n = 2
+      print *, 'x = ', (xw(i,1), i=1,n,1)
+      print *, 'w = ', (xw(i,2), i=1,n,1)
+      deallocate(xw)
 
 end program gauss_legendre
+
+subroutine gauss_abscissas_weights(n, xi_wi)
+        implicit none
+        integer, intent(in)      :: n 
+        integer(kind=4)          :: i
+        real(kind=8)             :: x
+        real(kind=8), external   :: newton_raphson, gauss_weights
+        real*8, parameter :: pi = 4.0 * atan(1.0)
+        !real*8, dimension(:,:), allocatable :: xi_wi
+        real*8, dimension(n,2) :: xi_wi
+
+        !allocate(xi_wi(n,2))
+
+        do i = 1, n, 1
+
+          x = cos(pi * (i-0.25)/(n+0.5))
+          xi_wi(i,1) = newton_raphson(x, n)
+          xi_wi(i,2) = gauss_weights(xi_wi(i,1), n)
+
+
+        end do
+
+
+end subroutine gauss_abscissas_weights
+!end subroutine gauss_abscissas_weights
+
+!real*8, dimension(n,2) function gauss_abscissas_weights(n) &
+!        result (xi_wi)
+!        implicit none
+!        integer, intent(in)      :: n 
+!        integer(kind=4)          :: i
+!        real(kind=8)             :: x, newton_raphson, gauss_weights
+!        real*8, parameter :: pi = 4.0 * atan(1.0)
+!
+!        do i = 1, n, 1
+!
+!          x = cos(pi * (i-0.25)/(n+0.5))
+!          xi_wi(i,1) = newton_raphson(x, n)
+!          xi_wi(i,2) = gauss_weights(x, n)
+!
+!
+!        end do
+!
+!
+!end function gauss_abscissas_weights
 
 !real*8 pure function gauss_weights(x,n) result (w)
 real*8 function gauss_weights(x,n) result (w)
